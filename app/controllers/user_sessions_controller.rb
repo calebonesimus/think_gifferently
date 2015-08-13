@@ -14,8 +14,9 @@ class UserSessionsController < ApplicationController
 
   def destroy
     current_user_session.destroy
-    flash[:success] = "Goodbye!"
-    redirect_to root_path
+    respond_to do |format|
+      format.js { render 'shared/signout.js.erb'}
+    end
   end
 
   private

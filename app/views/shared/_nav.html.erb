@@ -17,7 +17,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
           <li><%# current_user.email %></li>
-          <li><%= link_to 'Sign Out', sign_out_path, method: :delete %></li>
+          <li><%= link_to 'Sign Out', sign_out_path, method: :delete, remote: true %></li>
         <% else %>
           <li><%= link_to 'Sign In', '#loginModal', 'data-toggle' => 'modal', 'data-target' => '#loginModal' %></li>
           <li><%= link_to 'Sign Up', '#signupModal', 'data-toggle' => 'modal', 'data-target' => '#signupModal' %></li>

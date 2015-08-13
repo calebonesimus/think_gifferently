@@ -5,11 +5,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(users_params)
-    if @user.save
-      flash[:success] = "Account registered!"
-      redirect_to root_path
-    else
-      render :new
+    respond_to do |format|
+      if @user.save
+        format.js { render 'shared/signup.js.erb' }
+      end
     end
   end
 

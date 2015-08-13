@@ -5,11 +5,10 @@ class UserSessionsController < ApplicationController
 
   def create
     @user_session = UserSession.new(user_session_params)
-    if @user_session.save
-      flash[:success] = "Welcome back!"
-      redirect_to root_path
-    else
-      render :new
+    respond_to do |format|
+      if @user_session.save
+        format.js { render 'shared/signin.js.erb' }
+      end
     end
   end
 

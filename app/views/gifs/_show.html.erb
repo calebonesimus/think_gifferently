@@ -1,0 +1,6 @@
+<div class="text-center">
+  <%= image_tag(gif.image_file, class: 'img-responsive gif-center') %>
+  <br>
+  <p>URL: <%= link_to image_url(gif.image_file) %></p>
+  <p>Uploaded <%= time_ago_in_words(gif.created_at) %> by User</p>
+</div>

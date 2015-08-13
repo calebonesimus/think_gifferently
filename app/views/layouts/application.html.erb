@@ -16,8 +16,8 @@
   <div id="footer"></div>
 
   <!-- Login and Sign Up modals -->
-  <%= render partial: 'shared/login_modal', locals: { @user_session: user_session } %>
-  <%= render partial: 'shared/signup_modal', locals: { @user: user } %>
+  <%= render partial: 'shared/login_modal', locals: { user_session: @user_session } %>
+  <%= render partial: 'shared/signup_modal', locals: { user: @user } %>
 
 </body>
 </html>

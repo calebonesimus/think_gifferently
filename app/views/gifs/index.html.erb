@@ -10,7 +10,7 @@
             <%= image_tag(gif.image_file, class: 'img-responsive') %>
           </a>
           <!-- Modal for each gif -->
-          <%= render partial: 'gifs/show', layout: 'layout_partials/gif_modal', locals: { id: gif.id, gif: gif } %>
+          <%= render partial: 'gifs/show', layout: 'shared/gif_modal', locals: { id: gif.id, gif: gif } %>
         </div>
       <% end %>
     </div>

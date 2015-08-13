@@ -1,0 +1,27 @@
+<div class="page-header"><h1>Sign Up!</h1></div>
+
+<%= bootstrap_form_for @user do |f| %>
+  <%= render 'shared/errors', object: @user %>
+
+  <div class="form-group">
+    <%= f.email_field :fullname, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.email_field :username, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.email_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.password_field :password, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+
+  <%= f.submit 'Sign Up', class: 'btn btn-primary btn-lg' %>
+<% end %>

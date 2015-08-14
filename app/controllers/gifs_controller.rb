@@ -7,6 +7,13 @@ class GifsController < ApplicationController
     @gifs = Gif.all.order(created_at: :desc)
   end
 
+  def tagged
+    @gifs = Gif.all.tagged_with(params[:tag])
+    respond_to do |format|
+      format.js { render 'gifs/js/tagged.js.erb' }
+    end
+  end
+
   # GET /gifs/1
   # GET /gifs/1.json
   def show

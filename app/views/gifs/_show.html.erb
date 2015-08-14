@@ -8,7 +8,7 @@
   </p>
   <p>Tags:
     <% gif.tags.each do |tag| %>
-      <%= tag.name %>
+      <%= link_to "#{tag}", tagged_path(:tag => tag.name), remote: true %>
     <% end %>
   </p>
   <p class="gif_<%= gif.id %>_likes">Total Likes: <%= gif.get_likes.size - gif.get_dislikes.size %></p>

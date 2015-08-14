@@ -7,6 +7,7 @@
           <a href="#gif-<%= gif.id %>-modal" data-toggle="modal" data-target="#gif_<%= gif.id %>_modal">
             <%= image_tag(gif.image_file, class: 'img-responsive') %>
           </a>
+          <p class="gif_<%= gif.id %>_likes">Total Likes: <%= gif.get_likes.size - gif.get_dislikes.size %></p>
           <!-- Modal for each gif -->
           <%= render partial: 'gifs/show', layout: 'shared/modal', locals: { id: 'gif_' + gif.id.to_s + '_modal', gif: gif } %>
         </div>

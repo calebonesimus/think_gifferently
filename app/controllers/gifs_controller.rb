@@ -30,7 +30,7 @@ class GifsController < ApplicationController
       if @gif.save
         format.js {}
       else
-        format.js { render 'shared/render_errors.js.erb' }
+        format.js { render 'shared/render_errors.js.erb', locals: { object: @gif } }
       end
     end
   end

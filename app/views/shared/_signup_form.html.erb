@@ -1,5 +1,7 @@
 <%= bootstrap_form_for @user, remote: true do |f| %>
-  <%= render 'shared/errors', object: @user %>
+
+  <div class="errorsContainer">
+  </div>
 
   <div class="form-group">
     <%= f.text_field :fullname, class: 'form-control' %>

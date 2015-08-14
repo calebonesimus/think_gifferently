@@ -8,6 +8,8 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.js { render 'shared/signup.js.erb' }
+      else
+        format.js { render 'shared/render_errors.js.erb', locals: { object: @user } }
       end
     end
   end

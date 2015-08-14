@@ -1,5 +1,5 @@
 class UserSessionsController < ApplicationController
-  
+
   def new
     @user_session = UserSession.new
   end
@@ -9,6 +9,8 @@ class UserSessionsController < ApplicationController
     respond_to do |format|
       if @user_session.save
         format.js { render 'shared/signin.js.erb' }
+      else
+        format.js { render 'shared/render_errors.js.erb', locals: { object: @user_session } }
       end
     end
   end

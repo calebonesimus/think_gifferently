@@ -13,6 +13,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'bootstrap_form'
 gem 'authlogic', '3.4.6'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'acts-as-taggable-on', '~> 3.4'
 
 group :development, :test do
   gem 'sqlite3'

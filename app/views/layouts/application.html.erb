@@ -28,9 +28,9 @@
   <div id="footer"></div>
 
   <!-- Modals -->
-  <%= render partial: 'gifs/new_gif_form', layout: 'shared/modal', locals: { id: "newGifModal" } %>
-  <%= render partial: 'shared/login_form', layout: 'shared/modal', locals: { id: 'loginModal' } %>
-  <%= render partial: 'shared/signup_form', layout: 'shared/modal', locals: { id: 'signupModal' } %>
+  <%= render partial: 'gifs/new_gif_form', layout: 'shared/modal', locals: { id: "newGifModal", title: "New Gif" } %>
+  <%= render partial: 'shared/login_form', layout: 'shared/modal', locals: { id: 'loginModal' }, title: "Log In" %>
+  <%= render partial: 'shared/signup_form', layout: 'shared/modal', locals: { id: 'signupModal', title: "Sign Up" } %>
 
 </body>
 </html>

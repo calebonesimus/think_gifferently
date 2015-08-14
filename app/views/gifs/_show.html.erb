@@ -7,8 +7,7 @@
     by <%= gif.user.username %>
   </p>
   <p class="gif_<%= gif.id %>_likes">Total Likes: <%= gif.get_likes.size - gif.get_dislikes.size %></p>
-  <ul class="likeButtons">
-    <li><%= button_to 'Like', like_gif_path(id: gif.id), class: 'btn btn-primary btn-xs', remote: true %></li>
-    <li><%= button_to 'Dislike', dislike_gif_path(id: gif.id), class: 'btn btn-danger btn-xs', remote: true %></li>
-  </ul>
+  <% if current_user %>
+    <%= render partial: 'like_buttons', locals: { gif: gif } %>
+  <% end %>
 </div>

@@ -1,0 +1,6 @@
+<div id="likeButtonsContainer">
+  <ul class="likeButtons">
+    <li><%= button_to 'Like', like_gif_path(id: gif.id), class: 'btn btn-primary btn-xs', remote: true %></li>
+    <li><%= button_to 'Dislike', dislike_gif_path(id: gif.id), class: 'btn btn-danger btn-xs', remote: true %></li>
+  </ul>
+</div>

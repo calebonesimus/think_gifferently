@@ -1,18 +1,4 @@
 <!-- This just displays all gifs in a grid and makes a modal for each one -->
-
-<div class="container" id="gifGrid">
-  <% @gifs.each_slice(4) do |row| %>
-    <div class="row top-margin">
-      <% row.each do |gif| %>
-        <div class="col-md-3">
-          <!-- Each gif is a link to its modal -->
-          <a href="#gif-<%= gif.id %>-modal" data-toggle="modal" data-target="#gif-<%= gif.id %>-modal">
-            <%= image_tag(gif.image_file, class: 'img-responsive') %>
-          </a>
-          <!-- Modal for each gif -->
-          <%= render partial: 'gifs/show', layout: 'shared/gif_modal', locals: { id: gif.id, gif: gif } %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+<div id="gifGrid">
+  <%= render partial: 'gifs/gif_grid', locals: { gifs: @gifs } %>
 </div>

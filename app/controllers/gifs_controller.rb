@@ -4,7 +4,7 @@ class GifsController < ApplicationController
   # GET /gifs
   # GET /gifs.json
   def index
-    @gifs = Gif.all
+    @gifs = Gif.all.order(created_at: :desc)
   end
 
   # GET /gifs/1
@@ -25,14 +25,10 @@ class GifsController < ApplicationController
   # POST /gifs.json
   def create
     @gif = Gif.new(gif_params)
-
+    current_user.gifs << @gif
     respond_to do |format|
       if @gif.save
-        format.html { redirect_to @gif, notice: 'Gif was successfully created.' }
-        format.json { render :show, status: :created, location: @gif }
-      else
-        format.html { render :new }
-        format.json { render json: @gif.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end

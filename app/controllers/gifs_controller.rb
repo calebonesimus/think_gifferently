@@ -1,5 +1,5 @@
 class GifsController < ApplicationController
-  before_action :set_gif, only: [:show, :edit, :update, :destroy]
+  before_action :set_gif, only: [:like, :dislike, :show, :edit, :update, :destroy]
 
   # GET /gifs
   # GET /gifs.json
@@ -28,7 +28,7 @@ class GifsController < ApplicationController
     current_user.gifs << @gif
     respond_to do |format|
       if @gif.save
-        format.js {}
+        format.js { render 'gifs/js/create.js.erb' }
       else
         format.js { render 'shared/render_errors.js.erb', locals: { object: @gif } }
       end
@@ -56,6 +56,20 @@ class GifsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to gifs_url, notice: 'Gif was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def like
+    @gif.liked_by current_user
+    respond_to do |format|
+      format.js { render 'gifs/js/like.js.erb', locals: { gif: @gif } }
+    end
+  end
+
+  def dislike
+    @gif.disliked_by current_user
+    respond_to do |format|
+      format.js { render 'gifs/js/dislike.js.erb', locals: { gif: @gif } }
     end
   end
 

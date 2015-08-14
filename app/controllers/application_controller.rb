@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_user_signup
   before_action :set_user_login
+  before_action :set_new_gif
 
   private
 
@@ -13,6 +14,10 @@ class ApplicationController < ActionController::Base
 
   def set_user_login
     @user_session = UserSession.new
+  end
+
+  def set_new_gif
+    @gif = Gif.new
   end
 
   def current_user_session

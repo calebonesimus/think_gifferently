@@ -17,6 +17,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
           <li><%# current_user.email %></li>
+          <li><%= link_to 'New Gif', '#gifFormModal', 'data-toggle' => 'modal', 'data-target' => '#gifFormModal' %></li>
           <li><%= link_to 'Sign Out', sign_out_path, method: :delete, remote: true %></li>
         <% else %>
           <li><%= link_to 'Sign In', '#loginModal', 'data-toggle' => 'modal', 'data-target' => '#loginModal' %></li>

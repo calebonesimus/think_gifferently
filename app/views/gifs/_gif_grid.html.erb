@@ -4,11 +4,11 @@
       <% row.each do |gif| %>
         <div class="col-md-3">
           <!-- Each gif is a link to its modal -->
-          <a href="#gif-<%= gif.id %>-modal" data-toggle="modal" data-target="#gif-<%= gif.id %>-modal">
+          <a href="#gif-<%= gif.id %>-modal" data-toggle="modal" data-target="#gif_<%= gif.id %>_modal">
             <%= image_tag(gif.image_file, class: 'img-responsive') %>
           </a>
           <!-- Modal for each gif -->
-          <%= render partial: 'gifs/show', layout: 'shared/gif_modal', locals: { id: gif.id, gif: gif } %>
+          <%= render partial: 'gifs/show', layout: 'shared/modal', locals: { id: 'gif_' + gif.id.to_s + '_modal', gif: gif } %>
         </div>
       <% end %>
     </div>

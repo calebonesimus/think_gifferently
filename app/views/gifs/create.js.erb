@@ -1,2 +1,2 @@
-$('#gifFormModal').modal('hide');
+$('#newGifModal').modal('hide');
 $('#gifGrid').html("<%=j render partial: 'gifs/gif_grid', locals: { gifs: Gif.all.order(created_at: :desc) } %>")

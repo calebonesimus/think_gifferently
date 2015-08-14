@@ -1,0 +1,18 @@
+<%= bootstrap_form_for @gif, remote: true do |f| %>
+
+  <%= render partial: 'shared/errors', locals: { object: @gif } %>
+
+  <div class="field">
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.text_field :image_file %>
+  </div>
+  <div class="field">
+    <%= f.text_field :summary %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

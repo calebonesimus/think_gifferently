@@ -29,6 +29,8 @@ class GifsController < ApplicationController
     respond_to do |format|
       if @gif.save
         format.js {}
+      else
+        format.js { render 'shared/render_errors.js.erb' }
       end
     end
   end

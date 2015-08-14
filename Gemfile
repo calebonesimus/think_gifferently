@@ -14,6 +14,8 @@ gem 'bootstrap_form'
 gem 'authlogic', '3.4.6'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'faker'
+gem 'giphy'
 
 group :development, :test do
   gem 'sqlite3'

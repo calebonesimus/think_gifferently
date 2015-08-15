@@ -4,7 +4,7 @@
   <p>URL: <%= link_to image_url(gif.image_file), image_url(gif.image_file) %></p>
   <p>
     Uploaded <%= time_ago_in_words(gif.created_at) %>
-    by <%= gif.user.username %>
+    by <%= link_to gif.user.username, by_user_path(username: gif.user.username), remote: true %>
   </p>
   <p>Tags:
     <% gif.tags.each do |tag| %>
@@ -12,7 +12,7 @@
     <% end %>
   </p>
   <p class="gif_<%= gif.id %>_likes">Total Likes: <%= gif.get_likes.size - gif.get_dislikes.size %></p>
-  <% if current_user %>
+  <%# if current_user %>
     <%= render partial: 'like_buttons', locals: { gif: gif } %>
-  <% end %>
+  <%# end %>
 </div>

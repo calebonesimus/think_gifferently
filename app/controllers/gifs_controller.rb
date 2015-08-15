@@ -14,6 +14,14 @@ class GifsController < ApplicationController
     end
   end
 
+  def by_user
+    @user = User.find_by "username = ?", params[:username]
+    @gifs = @user.gifs
+    respond_to do |format|
+      format.js { render 'gifs/js/tagged.js.erb' }
+    end
+  end
+
   # GET /gifs/1
   # GET /gifs/1.json
   def show

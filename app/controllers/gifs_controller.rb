@@ -22,6 +22,13 @@ class GifsController < ApplicationController
     end
   end
 
+  def all
+    @gifs = Gif.all
+    respond_to do |format|
+      format.js { render 'gifs/js/all_gifs.js.erb' }
+    end
+  end
+
   # GET /gifs/1
   # GET /gifs/1.json
   def show

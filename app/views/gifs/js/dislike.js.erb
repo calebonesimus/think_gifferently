@@ -1,1 +1,10 @@
+// Hide modal when opening all tags
+// This needs to be done differently than
+// other modal closings
+// Bootstrap isn't as smart as we thought
+$('.modal').modal('hide');
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
+
 $('p.gif_' + <%= gif.id.to_s %> + '_likes').html("Total Likes: <%=j (gif.cached_votes_score).to_s %>")
+$.get("gifs")

@@ -1,29 +1,30 @@
 class GifsController < ApplicationController
   before_action :set_gif, only: [:like, :dislike, :show, :edit, :update, :destroy]
+  before_action :set_gifs, only: [:index, :tagged, :by_user, :all]
 
   # GET /gifs
   # GET /gifs.json
   def index
-    @gifs = Gif.all.order(created_at: :desc)
+    # @gifs = Gif.all.order(cached_votes_score: :desc)
   end
 
   def tagged
-    @gifs = Gif.all.tagged_with(params[:tag]).order(created_at: :desc)
+    # @gifs = Gif.all.tagged_with(params[:tag]).order(cached_votes_score: :desc)
     respond_to do |format|
       format.js { render 'gifs/js/tagged.js.erb' }
     end
   end
 
   def by_user
-    @user = User.find_by "username = ?", params[:username]
-    @gifs = @user.gifs.order(created_at: :desc)
+    # @user = User.find_by "username = ?", params[:username]
+    # @gifs = @user.gifs.order(cached_votes_score: :desc)
     respond_to do |format|
       format.js { render 'gifs/js/tagged.js.erb' }
     end
   end
 
   def all
-    @gifs = Gif.all.order(created_at: :desc)
+    # @gifs = Gif.all.order(cached_votes_score: :desc)
     respond_to do |format|
       format.js { render 'gifs/js/all_gifs.js.erb' }
     end
@@ -99,6 +100,17 @@ class GifsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_gif
       @gif = Gif.find(params[:id])
+    end
+
+    def set_gifs
+      if params[:username]
+        @user = User.find_by "username = ?", params[:username]
+        @gifs = @user.gifs.order(cached_votes_score: :desc)
+      elsif params[:tag]
+        @gifs = Gif.all.tagged_with(params[:tag]).order(cached_votes_score: :desc)
+      else
+        @gifs = Gif.all.order(cached_votes_score: :desc)
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

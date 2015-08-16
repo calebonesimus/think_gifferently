@@ -1,1 +1,1 @@
-$('p.gif_' + <%= gif.id.to_s %> + '_likes').html("Total Likes: <%=j (gif.get_likes.size - gif.get_dislikes.size).to_s %>")
+$('p.gif_' + <%= gif.id.to_s %> + '_likes').html("Total Likes: <%=j (gif.cached_votes_score).to_s %>")

@@ -8,7 +8,7 @@ class GifsController < ApplicationController
   end
 
   def tagged
-    @gifs = Gif.all.tagged_with(params[:tag])
+    @gifs = Gif.all.tagged_with(params[:tag]).order(created_at: :desc)
     respond_to do |format|
       format.js { render 'gifs/js/tagged.js.erb' }
     end
@@ -16,14 +16,14 @@ class GifsController < ApplicationController
 
   def by_user
     @user = User.find_by "username = ?", params[:username]
-    @gifs = @user.gifs
+    @gifs = @user.gifs.order(created_at: :desc)
     respond_to do |format|
       format.js { render 'gifs/js/tagged.js.erb' }
     end
   end
 
   def all
-    @gifs = Gif.all
+    @gifs = Gif.all.order(created_at: :desc)
     respond_to do |format|
       format.js { render 'gifs/js/all_gifs.js.erb' }
     end

@@ -1,6 +1,6 @@
 class Gif < ActiveRecord::Base
   belongs_to :user
-  validates_format_of :gif_url, :with => /(.+)\.gif/, :on => :create
+  validates_format_of :gif_url, :with => /(.+)\.gif/, :on => :create, allow_blank: true
   acts_as_votable
   acts_as_taggable
 

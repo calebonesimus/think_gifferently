@@ -3,4 +3,6 @@ class Gif < ActiveRecord::Base
   validates_format_of :image_file, :with => /(.+)\.gif/, :on => :create
   acts_as_votable
   acts_as_taggable
+
+  mount_uploader :local_gif, GifUploader
 end

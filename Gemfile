@@ -18,6 +18,7 @@ gem 'faker'
 gem 'kaminari'
 gem 'rails_12factor', group: :production
 gem 'carrierwave'
+gem 'fog'
 
 group :development, :test do
   gem 'sqlite3'

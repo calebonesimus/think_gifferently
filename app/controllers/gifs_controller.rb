@@ -50,7 +50,7 @@ class GifsController < ApplicationController
     @gif = Gif.new(gif_params)
     current_user.gifs << @gif
     respond_to do |format|
-      if @gif.save
+      if @gif.save!
         format.js { render 'gifs/js/create.js.erb' }
       else
         format.js { render 'shared/render_errors.js.erb', locals: { object: @gif } }

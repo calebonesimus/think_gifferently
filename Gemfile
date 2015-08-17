@@ -19,6 +19,7 @@ gem 'kaminari'
 gem 'rails_12factor', group: :production
 gem 'carrierwave'
 gem 'fog'
+gem 'remotipart', '~> 1.2'
 
 group :development, :test do
   gem 'sqlite3'

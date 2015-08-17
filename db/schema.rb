@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150816011209) do
+ActiveRecord::Schema.define(version: 20150817172030) do
 
   create_table "gifs", force: :cascade do |t|
-    t.string   "image_file"
+    t.string   "gif_url"
     t.integer  "user_id"
     t.string   "summary"
     t.string   "title"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150816011209) do
     t.integer  "cached_weighted_score",   default: 0
     t.integer  "cached_weighted_total",   default: 0
     t.float    "cached_weighted_average", default: 0.0
+    t.string   "local_gif"
   end
 
   add_index "gifs", ["cached_votes_down"], name: "index_gifs_on_cached_votes_down"

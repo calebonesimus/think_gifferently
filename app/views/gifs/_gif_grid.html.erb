@@ -5,7 +5,11 @@
         <div class="col-md-3">
           <!-- Each gif is a link to its modal -->
           <a href="#gif-<%= gif.id %>-modal" data-toggle="modal" data-target="#gif_<%= gif.id %>_modal">
-            <%= image_tag(gif.gif_url, class: 'img-responsive') %>
+            <% if gif.local_gif.blank? %>
+              <%= image_tag(gif.gif_url, class: 'img-responsive') %>
+            <% else %>
+              <%= image_tag(gif.local_gif, class: 'img-responsive') %>
+            <% end %>
           </a>
           <p class="gif_<%= gif.id %>_likes">Total Likes: <%= gif.get_likes.size - gif.get_dislikes.size %></p>
           <!-- Modal for each gif -->

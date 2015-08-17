@@ -105,11 +105,11 @@ class GifsController < ApplicationController
     def set_gifs
       if params[:username]
         @user = User.find_by "username = ?", params[:username]
-        @gifs = @user.gifs.order(cached_votes_score: :desc)
+        @gifs = @user.gifs.order(cached_votes_score: :desc)#.page(params[:page]).per(3)
       elsif params[:tag]
-        @gifs = Gif.all.tagged_with(params[:tag]).order(cached_votes_score: :desc)
+        @gifs = Gif.all.tagged_with(params[:tag]).order(cached_votes_score: :desc)#.page(params[:page]).per(3)
       else
-        @gifs = Gif.all.order(cached_votes_score: :desc)
+        @gifs = Gif.all.order(cached_votes_score: :desc)#.page(params[:page]).per(12)
       end
     end
 

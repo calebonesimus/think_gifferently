@@ -23,6 +23,8 @@ gem 'remotipart', '~> 1.2'
 gem "figaro", "git" => "git@github.com:laserlemon/figaro.git"
 gem 'shoulda', group: :test
 gem 'factory_girl', "~> 4.0" ,group: :test
+gem 'capybara', group: :test
+gem 'poltergeist', group: :test, :require => 'capybara/poltergeist'
 
 group :development, :test do
   gem 'sqlite3'

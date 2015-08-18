@@ -1,7 +1,18 @@
-<div class="text-center">
-  <%= image_tag(gif.image_file, class: 'img-responsive gif-center') %>
-  <br>
-  <p>URL: <%= link_to image_url(gif.image_file), image_url(gif.image_file) %></p>
+<div class="text-center center-block">
+  <% if gif.local_gif %>
+    <%= image_tag(gif.local_gif, class: 'img-responsive') %>
+  <% else %>
+    <%= image_tag(gif.gif_url, class: 'img-responsive') %>
+  <% end %>  <br>
+  <p>
+    URL:
+    <% if gif.local_gif.blank? %>
+      <%= link_to image_url(gif.gif_url), image_url(gif.gif_url) %>
+    <% else %>
+      <%= link_to image_url("https://s3.amazonaws.com/thinkgifferently/gifs/#{gif.local_gif}"),
+      "https://s3.amazonaws.com/thinkgifferently/gifs/#{gif.local_gif}" %>
+    <% end %>
+  </p>
   <p>
     Uploaded <%= time_ago_in_words(gif.created_at) %>
     by <%= link_to gif.user.username, by_user_path(username: gif.user.username), remote: true %>

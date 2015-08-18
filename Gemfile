@@ -17,6 +17,10 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'faker'
 gem 'kaminari'
 gem 'rails_12factor', group: :production
+gem 'carrierwave'
+gem 'fog'
+gem 'remotipart', '~> 1.2'
+gem "figaro"
 
 group :development, :test do
   gem 'sqlite3'

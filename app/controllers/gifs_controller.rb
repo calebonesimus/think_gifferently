@@ -5,7 +5,6 @@ class GifsController < ApplicationController
   # GET /gifs
   # GET /gifs.json
   def index
-    binding.pry
     if @gifs.blank?
       render text: "No Gifs :(", layout: 'application.html.erb'
     end

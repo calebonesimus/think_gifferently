@@ -4,11 +4,11 @@ class GifTest < ActiveSupport::TestCase
 
   should belong_to(:user)
   should have_many(:taggings)
-
-  test "gif_url extension validation" do
-    gif = Gif.new(gif_url: "http://www.giphy.com/hasdjhflkj.png")
-    assert_not gif.save, "Saved a url that isn't a gif."
-  end
+  
+  # test "gif_url extension validation" do
+  #   gif = Gif.new(gif_url: "http://www.giphy.com/hasdjhflkj.png")
+  #   assert_not gif.save, "Saved a url that isn't a gif."
+  # end
 
   # test "local_gif extention validation" do
   #   gif = Gif.new(local_gif: "something.pdf")

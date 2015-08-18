@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  image_file: MyString
+  gif_url: MyString
   user_id: 1
   summary: MyString
   title: MyString
 
 two:
-  image_file: MyString
+  gif_url: MyString
   user_id: 1
   summary: MyString
   title: MyString

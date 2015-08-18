@@ -20,7 +20,9 @@ gem 'rails_12factor', group: :production
 gem 'carrierwave'
 gem 'fog'
 gem 'remotipart', '~> 1.2'
-gem "figaro"
+gem "figaro", "git" => "git@github.com:laserlemon/figaro.git"
+gem 'shoulda', group: :test
+gem 'factory_girl', "~> 4.0" ,group: :test
 
 group :development, :test do
   gem 'sqlite3'

@@ -10,8 +10,8 @@ one:
 
 two:
   fullname: MyString
-  username: MyString
-  email: MyString
+  username: MySecondString
+  email: MySecondString
   crypted_password: MyString
   password_salt: MyString
   persistence_token: MyString

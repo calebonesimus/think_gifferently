@@ -5,7 +5,9 @@ class GifsController < ApplicationController
   # GET /gifs
   # GET /gifs.json
   def index
-    # @gifs = Gif.all.order(cached_votes_score: :desc)
+    if @gifs.blank?
+      render text: "No Gifs :(", layout: 'application.html.erb'
+    end
   end
 
   def tagged

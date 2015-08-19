@@ -1,9 +1,12 @@
-<div class="text-center center-block">
+<div class="text-center">
+  <!-- Show gif real big -->
   <% if gif.local_gif.blank? %>
-    <%= image_tag(gif.gif_url, class: 'img-responsive') %>
+    <%= image_tag(gif.gif_url, class: 'img-responsive center-block') %>
   <% else %>
-    <%= image_tag(gif.local_gif, class: 'img-responsive') %>
-  <% end %>  <br>
+    <%= image_tag(gif.local_gif, class: 'img-responsive center-block') %>
+  <% end %><br>
+
+  <!-- Show the url for the gif -->
   <p>
     URL:
     <% if gif.local_gif.blank? %>
@@ -13,15 +16,27 @@
       "https://s3.amazonaws.com/thinkgifferently/gifs/#{gif.local_gif}" %>
     <% end %>
   </p>
+
+  <!-- Show who uploaded the gif and when -->
   <p>
     Uploaded <%= time_ago_in_words(gif.created_at) %>
     by <%= link_to gif.user.username, by_user_path(username: gif.user.username), remote: true %>
   </p>
+
+  <!-- Display all the tags -->
   <p>Tags:
     <% gif.tags.each do |tag| %>
       <%= link_to "#{tag}", tagged_path(:tag => tag.name), remote: true %>
     <% end %>
   </p>
+  <% if gif.user == current_user %>
+    <%= link_to "edit tags", edit_tag_path, remote: true %>
+  <% end %>
+
+  <div id="editTagsContainer_for_<%= gif.id %>">
+  </div>
+
+  <!-- Show the total likes and like buttons -->
   <p class="gif_<%= gif.id %>_likes">Total Likes: <%= gif.cached_votes_score %></p>
   <%# if current_user %>
     <%= render partial: 'like_buttons', locals: { gif: gif } %>

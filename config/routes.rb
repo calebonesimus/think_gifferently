@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'tags/:tag' => 'gifs#tagged', as: :tagged
   get 'user/:username' => 'gifs#by_user', as: :by_user
   get 'gifs' => 'gifs#all', as: :all_gifs
+  get 'edit_tag' => 'gifs#edit_tag', as: :edit_tag
 
   resources :users, only: [:new, :create]
   resources :user_sessions, only: [:create, :destroy]

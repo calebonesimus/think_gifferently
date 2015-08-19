@@ -1,5 +1,5 @@
 class GifsController < ApplicationController
-  before_action :set_gif, only: [:like, :dislike, :show, :edit, :update, :destroy]
+  before_action :set_gif, only: [:like, :dislike, :show, :edit, :update, :destroy, :edit_tag]
   before_action :set_gifs, only: [:index, :tagged, :by_user, :all]
 
   # GET /gifs
@@ -32,18 +32,9 @@ class GifsController < ApplicationController
     end
   end
 
-  # GET /gifs/1
-  # GET /gifs/1.json
-  def show
-  end
-
   # GET /gifs/new
   def new
     @gif = Gif.new
-  end
-
-  # GET /gifs/1/edit
-  def edit
   end
 
   # POST /gifs
@@ -69,11 +60,7 @@ class GifsController < ApplicationController
   def update
     respond_to do |format|
       if @gif.update(gif_params)
-        format.html { redirect_to @gif, notice: 'Gif was successfully updated.' }
-        format.json { render :show, status: :ok, location: @gif }
-      else
-        format.html { render :edit }
-        format.json { render json: @gif.errors, status: :unprocessable_entity }
+        format.js { render 'gifs/js/all_gifs.js.erb' }
       end
     end
   end
@@ -99,6 +86,12 @@ class GifsController < ApplicationController
     @gif.disliked_by current_user
     respond_to do |format|
       format.js { render 'gifs/js/dislike.js.erb', locals: { gif: @gif } }
+    end
+  end
+
+  def edit_tag
+    respond_to do |format|
+      format.js { render 'gifs/js/edit_tag.js.erb', locals: { gif: @gif } }
     end
   end
 

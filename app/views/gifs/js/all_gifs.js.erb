@@ -1,2 +1,10 @@
+// Hide modal when opening all tags
+// This needs to be done differently than
+// other modal closings
+// Bootstrap isn't as smart as we thought
+$('.modal').modal('hide');
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
+
 // Reload entire grid of images
 $('#gifGrid').html("<%=j render partial: 'gifs/gif_grid', locals: { gifs: @gifs } %>");

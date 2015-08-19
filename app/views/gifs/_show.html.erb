@@ -38,7 +38,11 @@
 
   <!-- Show the total likes and like buttons -->
   <p class="gif_<%= gif.id %>_likes">Total Likes: <%= gif.cached_votes_score %></p>
-  <%# if current_user %>
+  <% if current_user %>
     <%= render partial: 'like_buttons', locals: { gif: gif } %>
-  <%# end %>
+  <% end %>
+
+  <% if gif.user == current_user %>
+    <%= link_to "delete gif", gif_path(gif), method: :delete, remote: true %>
+  <% end %>
 </div>

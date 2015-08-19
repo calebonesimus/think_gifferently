@@ -69,9 +69,9 @@ class GifsController < ApplicationController
   # DELETE /gifs/1.json
   def destroy
     @gif.destroy
+    set_gifs
     respond_to do |format|
-      format.html { redirect_to gifs_url, notice: 'Gif was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js { render 'gifs/js/all_gifs.js.erb' }
     end
   end
 

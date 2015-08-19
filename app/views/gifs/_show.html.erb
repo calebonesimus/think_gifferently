@@ -1,8 +1,8 @@
 <div class="text-center center-block">
-  <% if gif.local_gif %>
-    <%= image_tag(gif.local_gif, class: 'img-responsive') %>
-  <% else %>
+  <% if gif.local_gif.blank? %>
     <%= image_tag(gif.gif_url, class: 'img-responsive') %>
+  <% else %>
+    <%= image_tag(gif.local_gif, class: 'img-responsive') %>
   <% end %>  <br>
   <p>
     URL:

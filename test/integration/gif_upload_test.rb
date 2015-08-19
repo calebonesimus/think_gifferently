@@ -20,7 +20,8 @@ class GifUploadTest < ActionDispatch::IntegrationTest
     click_link('New Gif')
     attach_file('Local gif', '/Users/Caleb/Downloads/giphy.gif')
     click_on('Create Gif')
-
+    visit('/')
+    
     # Sign out the user
     click_link('Sign Out')
     assert page.has_content?('Sign In')

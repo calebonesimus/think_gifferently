@@ -53,6 +53,10 @@ class GifsController < ApplicationController
     current_user.gifs << @gif
     respond_to do |format|
       if @gif.save
+        tags = params[:gif][:tag_list].split(",").collect(&:strip)
+        tags.each do |tag|
+          @gif.tag_list << Tag.new(:name => tag)
+        end
         format.js { render 'gifs/js/create.js.erb' }
       else
         format.js { render 'shared/render_errors.js.erb', locals: { object: @gif } }

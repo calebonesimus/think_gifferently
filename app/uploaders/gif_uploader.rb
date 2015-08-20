@@ -17,9 +17,9 @@ class GifUploader < CarrierWave::Uploader::Base
   end
 
   # Only allow gifs to be uploaded
-  def extension_white_list
-    %w("gif")
-  end
+  # def extension_white_list
+  #   %w("gif")
+  # end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url

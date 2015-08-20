@@ -1,4 +1,12 @@
 <div class="container">
+  <% if @tag %>
+    <p>Tag: <%= @tag %></p>
+    <%= link_to "Clear", all_gifs_path, remote: true %>
+  <% end %>
+  <% if @by_user %>
+    <p>By user: <%= params[:username] %></p>
+    <%= link_to "Clear", all_gifs_path, remote: true %>
+  <% end %>
   <% gifs.each_slice(4) do |row| %>
     <div class="row top-margin">
       <% row.each do |gif| %>

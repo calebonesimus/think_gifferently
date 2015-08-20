@@ -12,6 +12,7 @@ class GifsController < ApplicationController
 
   def tagged
     # @gifs = Gif.all.tagged_with(params[:tag]).order(cached_votes_score: :desc)
+    @tag = params[:tag]
     respond_to do |format|
       format.js { render 'gifs/js/tagged.js.erb' }
     end
@@ -20,6 +21,8 @@ class GifsController < ApplicationController
   def by_user
     # @user = User.find_by "username = ?", params[:username]
     # @gifs = @user.gifs.order(cached_votes_score: :desc)
+    @by_user = User.find_by 'username = ?', params[:username]
+    
     respond_to do |format|
       format.js { render 'gifs/js/tagged.js.erb' }
     end
